@@ -16,17 +16,6 @@ buildctl \
   build \
   --frontend dockerfile.v0 \
   --local context=. \
-  --local dockerfile=. \
-  --export-cache type=registry,ref=$IMAGE:buildcache \
-  --output type=image,name=$IMAGE:$HASH,push=true
-
-buildctl \
-  prune \
-  --all \
-  --keep-storage 239
+  --local dockerfile=.
 
 pkill buildkitd
-sync
-sleep 1
-
-du -sh /var/lib/buildkit/*

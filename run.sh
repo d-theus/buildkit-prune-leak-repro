@@ -1,5 +1,6 @@
 #!/bin/sh
 
+docker kill registry &>/dev/null
 docker run -d --rm --name reg registry:2
 
 uname | grep -q Linux
@@ -31,10 +32,6 @@ build
 echo "// random comment 1" >> ctx/index.js
 build
 echo "// random comment 2" >> ctx/index.js
-build
-
-reclaim
-
 build
 
 reclaim

@@ -9,8 +9,8 @@ buildctl \
   prune \
   --all
 
+sleep 10s
+
 pkill buildkitd
-sync
-sleep 1
 
 du -sh /var/lib/buildkit/*
